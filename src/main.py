@@ -40,6 +40,8 @@ for arg in sys.argv:
 index = 1
 with open(os.getenv("HOME") + "/.local/share/pkgtranslate/pkglist", "r") as ls:
     for ln in ls.readlines():
+        if ln[0] == "#":
+            continue
         for pkg in pkgs:
             while index != ln.count(":") + 1:
                 if pkg in gebti(geati(ln, ",", index), ":", 1):
