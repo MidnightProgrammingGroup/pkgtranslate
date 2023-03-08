@@ -1,10 +1,10 @@
 import os, sys, errmgr
 
 def update():
-    # TODO: Implement, temporarily using built in test list
     os.system("mkdir " + os.getenv("HOME") + "/.local/share/pkgtranslate/ -p")
     with open(os.getenv("HOME") + "/.local/share/pkgtranslate/pkglist", "w") as ls:
-        ls.write(",deb:Debian,fed:Fedora,arc:Arch,\ntestdeb:Debian,testfeb:Fedora,testarc:Arch")
+        # TODO: get rid of wget dependency
+        os.system("wget https://raw.githubusercontent.com/MidnightProgrammingGroup/pkgtranslate/main/pkglist -O " + os.getenv("HOME") + "/.local/share/pkgtranslate/pkglist")
 # Get Everything After This Index
 def geati(String, Substring, index):
     loop = 0
