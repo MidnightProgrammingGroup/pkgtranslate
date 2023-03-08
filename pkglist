@@ -1,1 +1,2 @@
-firefox,Debian:firefox,Fedora:firefox,Arch
+,firefox:Debian,firefox:Fedora,firefox:Arch,
+,gnome-shell:Debian,gnome-shell:Fedora,gnome-shell:Arch,
