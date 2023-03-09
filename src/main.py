@@ -54,6 +54,8 @@ with open(os.getenv("HOME") + "/.local/share/pkgtranslate/pkglist", "r") as ls:
                         print(gebti(geati(ln, ",", index2), ":", 1))
                         loop2 += 1
                         index2 += 1
+                    
 #                else:
                 index += 1
 #                print(index)
+                break
