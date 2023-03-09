@@ -1,10 +1,13 @@
-import os, sys, errmgr
+import os, sys, errmgr, requests
 
 def update():
     os.system("mkdir " + os.getenv("HOME") + "/.local/share/pkgtranslate/ -p")
     with open(os.getenv("HOME") + "/.local/share/pkgtranslate/pkglist", "w") as ls:
-        # TODO: get rid of wget dependency
-        os.system("wget https://raw.githubusercontent.com/MidnightProgrammingGroup/pkgtranslate/main/pkglist -O " + os.getenv("HOME") + "/.local/share/pkgtranslate/pkglist")
+        print("(1/2): Downloading pkglist...")
+        download = requests.get("https://raw.githubusercontent.com/MidnightProgrammingGroup/pkgtranslate/main/pkglist")
+        print("(2/2): Writing to file: ~/.local/share/pkgtranslate/pkglist")
+        ls.write(download.text)
+        print("Finished update")
 # Get Everything After This Index
 def geati(String, Substring, index):
     loop = 0
@@ -35,6 +38,9 @@ for arg in sys.argv:
         continue
     elif arg[0] != "-":
         pkgs.append(arg)
+    elif arg == "-h" or arg == "--help":
+        errmgr.help()
+        exit(0)
     elif arg == "-U" or arg == "--update":
         update()
 index = 1
@@ -54,8 +60,5 @@ with open(os.getenv("HOME") + "/.local/share/pkgtranslate/pkglist", "r") as ls:
                         print(gebti(geati(ln, ",", index2), ":", 1))
                         loop2 += 1
                         index2 += 1
-                    
-#                else:
                 index += 1
-#                print(index)
                 break

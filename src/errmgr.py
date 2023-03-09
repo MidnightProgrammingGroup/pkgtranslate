@@ -1,5 +1,5 @@
 def help():
-    print("pkgt [Arguments] {Package}")
+    print("pkgt [Arguments] {Package}\n----------Arguments----------\n-U(--update):  Updates list\n-h(--help):    Show's this message")
 
 
 def fatal(msg = ""):
