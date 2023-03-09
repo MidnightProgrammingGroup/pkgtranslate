@@ -1,4 +1,4 @@
-import os, sys, errmgr, requests
+import os, sys, errmgr, requests, conf
 
 def update():
     os.system("mkdir " + os.getenv("HOME") + "/.local/share/pkgtranslate/ -p")
@@ -60,5 +60,6 @@ with open(os.getenv("HOME") + "/.local/share/pkgtranslate/pkglist", "r") as ls:
                         print(gebti(geati(ln, ",", index2), ":", 1))
                         loop2 += 1
                         index2 += 1
+                    #TODO: Ask if user wants package to be installed
                 index += 1
                 break
